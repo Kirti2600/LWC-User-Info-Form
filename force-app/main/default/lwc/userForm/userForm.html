@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Form Submission" icon-name="custom:custom63">
+        <form onsubmit={handleFormSubmit}>
+            <lightning-input name="firstName" label="First Name" value={firstName} onchange={handleInputChange}></lightning-input>
+            <lightning-input name="lastName" label="Last Name" value={lastName} onchange={handleInputChange}></lightning-input>
+            <lightning-input name="email" label="Email" value={email} onchange={handleInputChange}></lightning-input>
+            <lightning-input name="address" label="Address" value={address} onchange={handleInputChange}></lightning-input>
+            <lightning-input name="phone" label="Phone" value={phone} onchange={handleInputChange}></lightning-input>
+            <lightning-button type="submit" label="Submit"></lightning-button>
+        </form>
+        
+        <lightning-card title="Submissions" icon-name="custom:custom63">
+            <template if:true={submissions}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={submissions}
+                    columns={columns}>
+                </lightning-datatable>
+            </template>
+            <template if:false={submissions}>
+                <p>No submissions found.</p>
+            </template>
+        </lightning-card>
+    </lightning-card>
+</template>
